@@ -7,14 +7,14 @@
     <TargetFrameworks>net40;net35;netstandard1.0;netcoreapp1.0;netcoreapp2.0;netstandard2.0</TargetFrameworks>
     <LangVersion>7</LangVersion>
     
-    <PackageId>Curry</PackageId>
+    <PackageId>Curryfy</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>Leandro F. Vieira (leandromoh)</Authors>
-    <Description>This project enhances usability for functions in a functional programming manner, adding the following methods: Curry, UnCurry, Partial, PartialCurry, Flip. Also, add support to .NET Framework 3.5 for delegates Func and Action have more than 5 parameters.</Description>
+    <Description>This project enhances usability for functions in a functional programming manner, adding the following methods: Curry, UnCurry, Partial, PartialCurrying, Flip. Also, adds support to .NET Framework 3.5 for delegates Func and Action have more than 5 parameters.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>First release. Contains Awesome features of functional programming related to functions. Adds new methods: Curry, UnCurry, Partial, PartialCurry, Flip.</PackageReleaseNotes>
+    <PackageReleaseNotes>First release. Contains Awesome features of functional programming related to functions. Adds new methods: Curry, UnCurry, Partial, PartialCurrying, Flip.</PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) Leandro F. Vieira (leandromoh). All rights reserved.</Copyright>
-    <PackageTags>curry partial application uncurry funcional function extensions</PackageTags>
+    <PackageTags>curry partial application uncurry funcional function extensions curryfy</PackageTags>
     <PackageProjectUrl>https://github.com/leandromoh/Curry</PackageProjectUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
 
