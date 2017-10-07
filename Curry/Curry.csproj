@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Curry</RootNamespace>
+    <AssemblyName>Curry</AssemblyName>
+    <TargetFrameworks>net40;net35;netstandard1.0;netcoreapp1.0;netcoreapp2.0;netstandard2.0</TargetFrameworks>
+    <LangVersion>7</LangVersion>
+    
+    <PackageId>Curry</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Leandro F. Vieira (leandromoh)</Authors>
+    <Description>This project enhances usability for functions in a functional programming manner, adding the following methods to work with functions: Curry, UnCurry, Partial, PartialCurry, Flip. Also, add support for .NET Framework 3.5 to delegates Func and Action have more than 5 parameters.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release. Contains Awesome features of functional programming related to functions. Adds new methods: Curry, UnCurry, Partial, PartialCurry, Flip.</PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) Leandro F. Vieira (leandromoh). All rights reserved.</Copyright>
+    <PackageTags>curry partial application uncurry funcional</PackageTags>
+
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' Or '$(TargetFramework)' == 'net40' ">
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net35' ">
+    <DefineConstants>$(DefineConstants);NO_FUNC16</DefineConstants>
+  </PropertyGroup>
+
+  <!-- necessary to build on .net 3.5. See more on https://github.com/Microsoft/msbuild/issues/1333#issuecomment-296346352 -->
+  <PropertyGroup>
+   <FrameworkPathOverride Condition="'$(TargetFramework)' == 'net35'">C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client</FrameworkPathOverride>
+  </PropertyGroup>
+  
+</Project>
