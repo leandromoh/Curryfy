@@ -3,13 +3,13 @@
 This project enhances usability for functions in a functional programming manner, adding the following methods: 
 
 Curryfy is available for download and installation as
-[NuGet packages](https://www.nuget.org/packages/Curryfy/1.0.0).
+[NuGet packages](https://www.nuget.org/packages/Curryfy/).
 
 ## Methods
 
 ### And
 
-Transforms two or more predicates into one. Returns true if all predicates returns that. 
+Transforms two or more predicates into one. Returns true if all predicates does. 
 
 This method has 2 overloads.
 
@@ -27,7 +27,9 @@ This method has 2 overloads.
 
 ### Compose
 
-Function composition.
+Function (implementation for Functor typeclass) composition.
+Receives a function that receives A and returns B and a function that receives B and returns C
+And then returns a function that receives A and returns C.
 
 This method has 2 overloads.
 
@@ -41,22 +43,32 @@ This method has 15 overloads.
 
 Flip the order of first two arguments of a curried function.
 
-Also, adds support to .NET Framework 3.5 for delegates Func and Action have more than 5 parameters.
-
 This method has 17 overloads.
 
 ### Id
 
 Identity function.
+This function returns the value which it was passed to it, replacing the "x => x" lambda.
 
 ### Memoize
 
-Returns a cached version of the function. 
-Given the same parameters, the function returns the cached result.
+Returns a function that wraps a function. 
+Each time the resulting function is called with a new value, its result is memoized (cached).
+Subsequent calls use the memoized value. 
+
+This method has 45 overloads.
+
+### NullConditional[s]
+
+Used to test for null before performing an operation over an object (like member access or method invoke).
+This is the functional version of the "Null-conditional Operator" (?.), introduced in C# 6.
+To avoid ambiguity for the compiler, was added the letter "s" at the end of NullConditional function when the operation returns a value type.
+
+This method has 5 overloads.
 
 ### Or
 
-Transforms two or more predicates into one. Returns true if any predicate returns that. 
+Transforms two or more predicates into one. Returns true if any predicate does. 
 
 This method has 2 overloads.
 
@@ -72,6 +84,11 @@ Allow pass a part of the arguments of a function, and returns a curried function
 
 This method has 120 overloads.
 
+### TryGetData
+
+Try to invoke a function, at most the specified number of times, until it returns a valid result.
+When it exceed the maximum amount of tries, the fall back function is invoked.
+
 ### UnCurry
 
 Transforms a curried function in its normal form. 
@@ -86,3 +103,5 @@ Applies the generator function to the value until predicate returns true.
 
 Applies a specified function to the corresponding elements of N sequences, producing a sequence of the results.
 It can Zip N sequences if the zipper function is curried.
+
+This method has 2 overloads.

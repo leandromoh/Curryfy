@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Functional
 {
@@ -705,6 +708,37 @@ namespace Functional
         public static TResult PartialCurrying<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, TResult>(this Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, TResult> function, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11, T12 arg12, T13 arg13, T14 arg14, T15 arg15, T16 arg16)
         {
             return function(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16);
+        }
+
+        private static string CreatePartial(int args)
+        {
+            if (args < 1) throw new ArgumentException("args", "args must be greater than 0");
+
+            List<string> definitions = new List<string>();
+
+            args++;
+
+            for (int i = 1; i < args; i++)
+            {
+                var n = Enumerable.Range(1, args).ToArray();
+                var ts = n.Select(x => "T" + x);
+                string TsComma = ts.Join(", ");
+                var letters = Enumerable.Range(1, args - 1).Select(x => "arg" + x);
+                var partial = Enumerable.Range(1, args).Select(x => "T" + x + " arg" + x).Take(i);
+
+                var templete = new StringBuilder();
+                templete.Append("public static ");
+                templete.Append(ts.Skip(i).AggregateRight((t1, t2) => "Func<" + t1 + ", " + t2 + ">") + " ");
+                templete.Append("Partial<" + TsComma + ">");
+                templete.Append("(this Func<" + TsComma + "> function," + partial.Join(", ") + ")");
+                templete.Append("\n{");
+                templete.Append("\n\treturn " + letters.Skip(i).Join(" => ") + " => function(" + letters.Join(", ") + ");");
+                templete.Append("\n}");
+
+                definitions.Add(templete.Replace("T" + args, "TResult").Replace("return  =>", "return ").ToString());
+            }
+
+            return definitions.Join("\n\n");
         }
     }
 }
