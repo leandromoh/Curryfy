@@ -5,6 +5,9 @@ namespace Functional
 {
     public static partial class Prelude
     {
+        public static Func<T1, TResult> Memoize<T1, TResult>(this Func<T1, TResult> function)
+            => function.MemoizeImpl(null);
+
         public static Func<T1, T2, TResult> Memoize<T1, T2, TResult>(this Func<T1, T2, TResult> function)
             => function.MemoizeImpl(null);
 
@@ -51,6 +54,8 @@ namespace Functional
             => function.MemoizeImpl(null);
 
 
+        public static Func<T1, TResult> Memoize<T1, TResult>(this Func<T1, TResult> function, int cacheExpirationInSeconds)
+            => function.MemoizeImpl(cacheExpirationInSeconds);
 
         public static Func<T1, T2, TResult> Memoize<T1, T2, TResult>(this Func<T1, T2, TResult> function, int cacheExpirationInSeconds)
             => function.MemoizeImpl(cacheExpirationInSeconds);

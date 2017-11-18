@@ -5,6 +5,36 @@ namespace Functional
 {
     public static partial class Prelude
     {
+        private static Func<T1, TResult> MemoizeImpl<T1, TResult>(this Func<T1, TResult> function, int? cacheExpirationInSeconds)
+        {
+            var y = new { P1 = default(T1) };
+            var dic = Enumerable.Repeat(default(TResult), 0).ToDictionary(x => y);
+            var expirationDate = cacheExpirationInSeconds.HasValue 
+                                   ? DateTime.Now.AddSeconds(cacheExpirationInSeconds.Value) 
+                                   : (DateTime?) null;
+
+            return (arg1) =>
+            {
+                if (expirationDate.HasValue && DateTime.Now > expirationDate.Value)
+                {
+                    expirationDate = DateTime.Now.AddSeconds(cacheExpirationInSeconds.Value);
+                    dic = Enumerable.Repeat(default(TResult), 0).ToDictionary(x => y);
+                }
+
+                var value = default(TResult);
+
+                var key = new { P1 = arg1 };
+
+                if (!dic.TryGetValue(key, out value))
+                {
+                    value = function(arg1);
+                    dic[key] = value;
+                }
+
+                return value;
+            };
+        }
+
         private static Func<T1, T2, TResult> MemoizeImpl<T1, T2, TResult>(this Func<T1, T2, TResult> function, int? cacheExpirationInSeconds)
         {
             var y = new { P1 = default(T1), P2 = default(T2) };
