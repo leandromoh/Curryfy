@@ -17,6 +17,8 @@ x64/
 x86/
 build/
 bld/
+nuget/
+lib/
 [Bb]in/
 [Oo]bj/
 

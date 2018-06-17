@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Text;
 
-namespace Functional
+namespace Curryfy
 {
-    public static partial class Prelude
+    public static partial class CurryfyExtensions
     {
         public static Func<T1, T2, TResult> UnCurry<T1, T2, TResult>(this Func<T1, Func<T2, TResult>> function)
         {

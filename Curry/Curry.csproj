@@ -1,22 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <RootNamespace>Curry</RootNamespace>
-    <AssemblyName>Curry</AssemblyName>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <Version>1.1.0</Version>
+    <RootNamespace>Curryfy</RootNamespace>
+    <AssemblyName>Curryfy</AssemblyName>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <Version>2.0.0</Version>
     <TargetFrameworks>net40;net45;net35;netstandard1.0;netcoreapp1.0;netcoreapp2.0;netstandard2.0</TargetFrameworks>
     <LangVersion>7</LangVersion>
     
     <PackageId>Curryfy</PackageId>
     <PackageVersion>1.1.0</PackageVersion>
     <Authors>Leandro F. Vieira (leandromoh)</Authors>
-    <Description>This project enhances usability for functions in a functional programming manner, adding the following methods: And, Applicative, Bind, Compose, Curry, Flip, Id, Memoize, NullConditional, Or, Partial, PartialCurrying, TryGetData, UnCurry, Until, Zip. Also, adds support to .NET Framework 3.5 for delegates Func and Action have more than 5 parameters.</Description>
+    <Description>Provides functional-style extensions for C# 's function type.</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Adds new methods: And, Applicative, Bind, Compose, Id, Memoize, NullConditional, Or, TryGetData, Until, Zip.</PackageReleaseNotes>
+    <PackageReleaseNotes>This project enhances usability for functions with the following methods: Curry, UnCurry, ApplyPartial.</PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) Leandro F. Vieira (leandromoh). All rights reserved.</Copyright>
-    <PackageTags>curry partial application uncurry funcional function extensions curryfy</PackageTags>
+    <PackageTags>curry uncurry partial-application extensions functional-programming</PackageTags>
     <PackageProjectUrl>https://github.com/leandromoh/Curry</PackageProjectUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
 
@@ -49,9 +49,9 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' Or '$(TargetFramework)' == 'net40' ">
-    <Reference Include="System.Data.DataSetExtensions" />
+    <!-- <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml" /> -->
     <Reference Include="System" />
   </ItemGroup>
 
