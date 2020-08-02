@@ -40,12 +40,16 @@ They are divided into 5 static classes to avoid method signature ambiguities:
 Provides methods for curry and uncurry on `Func` delegates.
 
 - `PartialIncrementalActionExtensions` and `PartialIncrementalFuncExtensions` classes  
-Provides methods for partial application on delegates, respecting parameters order.  
+Provides methods for partial application on `Func` and `Action` delegates, respecting parameters order.  
 You can pass only the first argument, only the first and second, only the first, second and third, and so on.  
+So for a delegate with `N` parameters, there are `N-1` overloads available.  
+The `-1` overload not avaible is the one with all parameters, which is the delegate itself.  
 
 - `PartialSubsetActionExtensions` and `PartialSubsetFuncExtensions` classes  
 Provides methods for partial application on delegates, without respecting parameters order.  
-You can pass arguments arbitrarily, regardless of its positions. 
+You can pass arguments arbitrarily, regardless of its positions.  
+So for a delegate with `N` parameters, there are `(2^N)-2` (2 to the power of N, minus 2) overloads available (see [powerset](https://en.wikipedia.org/wiki/Power_set)).  
+The `-2` overloads not avaible are the one with no parameters and the one with all parameters, which is the delegate itself.  
 
 ## Core concepts
 
