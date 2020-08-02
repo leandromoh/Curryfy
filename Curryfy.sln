@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeGenerator", "CodeGenerator\CodeGenerator.csproj", "{0A250F58-A8AD-463E-BE27-5CEDD23F6924}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Curry", "Curry\Curry.csproj", "{B15DE9BC-9FC6-4858-9326-EA69E490F21F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A250F58-A8AD-463E-BE27-5CEDD23F6924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A250F58-A8AD-463E-BE27-5CEDD23F6924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A250F58-A8AD-463E-BE27-5CEDD23F6924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A250F58-A8AD-463E-BE27-5CEDD23F6924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B15DE9BC-9FC6-4858-9326-EA69E490F21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B15DE9BC-9FC6-4858-9326-EA69E490F21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B15DE9BC-9FC6-4858-9326-EA69E490F21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B15DE9BC-9FC6-4858-9326-EA69E490F21F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11D5BA3A-2D3E-4581-B2A4-3084F82C2B05}
+	EndGlobalSection
+EndGlobal
