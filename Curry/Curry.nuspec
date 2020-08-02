@@ -2,16 +2,16 @@
 <package >
   <metadata>
     <id>Curryfy</id>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <title>Curryfy</title>
     <authors>Leandro F. Vieira (leandromoh)</authors>
     <owners>Leandro F. Vieira (leandromoh)</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/leandromoh/Curry</projectUrl>
+    <projectUrl>https://github.com/leandromoh/Curryfy</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides functional-style extensions for C# 's function type.</description>
     <releaseNotes>This project enhances usability for functions with the following methods: Curry, UnCurry, ApplyPartial.</releaseNotes>
-    <copyright>Copyright 2017 (c) Leandro F. Vieira (leandromoh). All rights reserved.</copyright>
+    <copyright>Copyright 2020 (c) Leandro F. Vieira (leandromoh). All rights reserved.</copyright>
     <tags>curry uncurry partial-application extensions functional-programming</tags>
   </metadata>
   
