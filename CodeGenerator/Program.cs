@@ -52,9 +52,9 @@ namespace CodeGenerator
         {
             var methodsText = Enumerable
                                     .Range(2, 15)
-                                    .Select(i => $"// {i}\n"+ GetCurryFor(i));
+                                    .Select(i => $"// {i}\r\n"+ GetCurryFor(i));
 
-            var classContent = string.Join("\n\n", methodsText);
+            var classContent = string.Join("\r\n\r\n", methodsText);
 
             var classText = GetClass(classContent, identationLevel: 2);
             CreateFileInsideProject(classText, $@"Curry\Curry.cs");
@@ -65,9 +65,9 @@ namespace CodeGenerator
         {
             var methodsText = Enumerable
                                     .Range(2, 15)
-                                    .Select(i => $"// {i}\n" + GetUnCurryFor(i));
+                                    .Select(i => $"// {i}\r\n" + GetUnCurryFor(i));
 
-            var classContent = string.Join("\n\n", methodsText);
+            var classContent = string.Join("\r\n\r\n", methodsText);
 
             var classText = GetClass(classContent, identationLevel: 2);
             CreateFileInsideProject(classText, $@"Curry\UnCurry.cs");
