@@ -8,7 +8,7 @@ namespace CodeGenerator
 {
     public static class Common
     {
-        public static string GetClass(string text, int identationLevel, int spacesByTab = 4)
+        public static string GetClass(string className, string text, int identationLevel, int spacesByTab = 4)
         {
             var identation = new string(' ', spacesByTab * identationLevel);
 
@@ -26,7 +26,7 @@ namespace Curryfy
     // </auto-generated> 
     //------------------------------------------------------------------------------
 
-    public static partial class CurryfyExtensions
+    public static partial class " + className + @"
     { 
 " +
     identation + text.Replace("\n", "\n" + identation)
