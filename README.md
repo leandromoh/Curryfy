@@ -36,14 +36,14 @@ Or visit: [https://www.nuget.org/packages/Curryfy/](https://www.nuget.org/packag
 All helper methods are available as extension methods under the `Curryfy` namespace.  
 They are divided into 5 static classes to avoid method signature ambiguities:
 
-- `CurryExtensions` class
+- `CurryExtensions` class  
 Provides methods for curry and uncurry on `Func` delegates.
 
-- `PartialIncrementalActionExtensions` and `PartialIncrementalFuncExtensions` classes
+- `PartialIncrementalActionExtensions` and `PartialIncrementalFuncExtensions` classes  
 Provides methods for partial application on delegates, respecting parameters order.  
 You can pass only the first argument, only the first and second, only the first, second and third, and so on.  
 
-- `PartialSubsetActionExtensions` and `PartialSubsetFuncExtensions` classes
+- `PartialSubsetActionExtensions` and `PartialSubsetFuncExtensions` classes  
 Provides methods for partial application on delegates, without respecting parameters order.  
 You can pass arguments arbitrarily, regardless of its positions. 
 
