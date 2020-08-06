@@ -129,3 +129,7 @@ var uncurried = add5.UnCurry();       // uncurried is Func<int, int, int>
 
 var x = uncurried(7, 3) + curried(5)(7)(3);    // 15 + 15
 ```
+
+## Use this library? Give us some feedback :speech_balloon:
+If you use this library for learning, commercial development, or something else, please give us some feedback!  
+Open a new issue and describe your experience, latter we will have a "users feedback" section.
