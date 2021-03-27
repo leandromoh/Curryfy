@@ -72,7 +72,7 @@ This feature is available for delegates [Func](https://msdn.microsoft.com/pt-br/
 This method has 1232 overloads.
 
 ```csharp
-using Curryfy.PartialIncrementalFuncExtensions;
+using static Curryfy.PartialIncrementalFuncExtensions;
 
 var add12 = add.ApplyPartial(5, 7); // add12 is Func<int, int>
 var add5 = add.ApplyPartial(5);     // add5 is Func<int, int, int>
@@ -84,7 +84,7 @@ However using the subset approach, we can pass arguments arbitrarily.
 You can pass the only first and the third arguments of a function with 5 parameters, for example.  
 
 ```csharp
-using Curryfy.PartialSubsetFuncExtensions;
+using static Curryfy.PartialSubsetFuncExtensions;
 
 var add3 = add.ApplyPartial(arg3: 3);   // parameter c receives 3
 var add10 = add3.ApplyPartial(arg2: 7); // parameter b receives 7
@@ -103,7 +103,7 @@ This feature is available for [Func](https://msdn.microsoft.com/pt-br/library/bb
 This method has 15 overloads.
 
 ```csharp
-using Curryfy.CurryExtensions;
+using static Curryfy.CurryExtensions;
 
 var addCurried = add.Curry();   // addCurried is Func<int, Func<int, Func<int, int>>>
 
@@ -123,7 +123,7 @@ This feature is available for [Func](https://msdn.microsoft.com/pt-br/library/bb
 This method has 15 overloads.
 
 ```csharp
-using Curryfy.CurryExtensions;
+using static Curryfy.CurryExtensions;
 
 var curried = add.Curry();            // curried is Func<int, Func<int, Func<int, int>>>
 var add5 = curried(5);                // add5 is Func<int, Func<int, int>>
@@ -131,7 +131,3 @@ var uncurried = add5.UnCurry();       // uncurried is Func<int, int, int>
 
 var x = uncurried(7, 3) + curried(5)(7)(3);    // 15 + 15
 ```
-
-## Use this library? Give us some feedback :speech_balloon:
-If you use this library for learning, commercial development, or something else, please give us some feedback!  
-Open a new issue and describe your experience, latter we will have a "users feedback" section.
