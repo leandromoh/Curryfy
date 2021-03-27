@@ -1,8 +1,10 @@
+![Nuget](https://img.shields.io/nuget/v/curryfy?style=flat-square)
+![Nuget](https://img.shields.io/nuget/dt/curryfy?style=flat-square)
+
 # Curryfy
 
-Provides functional-style extensions for C#'s function type.
-
-Version: 3.0.0
+Provides strongly typed extensions methods for C# delegates to take advantages of functional programming techniques,  
+like currying and partial application. Concepts very well know in functional languages like Haskell, F#, Scala, etc.
 
 ## What and Why?
 
@@ -14,7 +16,7 @@ Curryfy offers strongly typed extensions that lets you take some benefits of fun
 
 ## Features
 
-* Robust
+* Robust and strongly typed
 * Self contained with no dependencies
 * Easily installed through NuGet
 * Supports **.NET 3.5+** and **.NET Core** (.NET Standard 2.0+)
@@ -70,7 +72,7 @@ This feature is available for delegates [Func](https://msdn.microsoft.com/pt-br/
 This method has 1232 overloads.
 
 ```csharp
-using static Curryfy.PartialIncrementalFuncExtensions;
+using Curryfy.PartialIncrementalFuncExtensions;
 
 var add12 = add.ApplyPartial(5, 7); // add12 is Func<int, int>
 var add5 = add.ApplyPartial(5);     // add5 is Func<int, int, int>
@@ -82,7 +84,7 @@ However using the subset approach, we can pass arguments arbitrarily.
 You can pass the only first and the third arguments of a function with 5 parameters, for example.  
 
 ```csharp
-using static Curryfy.PartialSubsetFuncExtensions;
+using Curryfy.PartialSubsetFuncExtensions;
 
 var add3 = add.ApplyPartial(arg3: 3);   // parameter c receives 3
 var add10 = add3.ApplyPartial(arg2: 7); // parameter b receives 7
@@ -101,7 +103,7 @@ This feature is available for [Func](https://msdn.microsoft.com/pt-br/library/bb
 This method has 15 overloads.
 
 ```csharp
-using static Curryfy.CurryExtensions;
+using Curryfy.CurryExtensions;
 
 var addCurried = add.Curry();   // addCurried is Func<int, Func<int, Func<int, int>>>
 
@@ -121,7 +123,7 @@ This feature is available for [Func](https://msdn.microsoft.com/pt-br/library/bb
 This method has 15 overloads.
 
 ```csharp
-using static Curryfy.CurryExtensions;
+using Curryfy.CurryExtensions;
 
 var curried = add.Curry();            // curried is Func<int, Func<int, Func<int, int>>>
 var add5 = curried(5);                // add5 is Func<int, Func<int, int>>
