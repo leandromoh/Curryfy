@@ -1,5 +1,5 @@
-![Nuget](https://img.shields.io/nuget/v/curryfy?style=flat-square)
-![Nuget](https://img.shields.io/nuget/dt/curryfy?style=flat-square)
+[![Nuget](https://img.shields.io/nuget/v/curryfy?style=flat-square)](https://www.nuget.org/packages/curryfy)
+[![Nuget](https://img.shields.io/nuget/dt/curryfy?style=flat-square)](https://www.nuget.org/packages/curryfy)
 
 # Curryfy
 
