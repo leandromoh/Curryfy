@@ -1,3 +1,4 @@
+[![Fuget](https://www.fuget.org/packages/Curryfy/badge.svg)](https://www.fuget.org/packages/Curryfy)
 [![Nuget](https://img.shields.io/nuget/v/curryfy?style=flat-square)](https://www.nuget.org/packages/curryfy)
 [![Nuget](https://img.shields.io/nuget/dt/curryfy?style=flat-square)](https://www.nuget.org/packages/curryfy)
 
