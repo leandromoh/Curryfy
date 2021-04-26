@@ -54,6 +54,11 @@ You can pass arguments arbitrarily, regardless of its positions.
 So for a delegate with `N` parameters, there are `(2^N)-2` (2 to the power of N, minus 2) overloads available (see [powerset](https://en.wikipedia.org/wiki/Power_set)).  
 The `-2` overloads not avaible are the one with no parameters and the one with all parameters, which is the delegate itself.  
 
+- `PartialDiscardActionExtensions` and `PartialDiscardFuncExtensions` classes  
+Provides methods for partial application on delegates, without respecting parameters order.  
+It is similar to `Partial Subset` classes, however in the method call these one rely on arguments  
+position rather than their names. Which can be more convenient in some situations.  
+
 ## Core concepts
 
 Consider the code snippet below as part of all examples:
@@ -93,6 +98,23 @@ var x = add10(5);                       // parameter a receives 5
 Console.WriteLine(x);                   // x = 15
 ```
 
+Using the discard approach, we can rely on arguments position instead of names.  
+The previous example with discard approach:  
+
+```csharp
+using static Curryfy.PartialDiscardFuncExtensions;
+using static Curryfy.__;
+
+var add3 = add.ApplyPartial(_, _, 3);   // parameter c receives 3
+var add10 = add3.ApplyPartial(_, 7);    // parameter b receives 7
+var x = add10(5);                       // parameter a receives 5
+Console.WriteLine(x);                   // x = 15
+```
+
+Which approach to use depends of situation. For example, if you have a function with 4 parameters and want to pass only the third  
+might be more interesting to specify the desired argument `f(arg3: "foo")` rather than `f(_, _, "foo", _)`.  
+If you want to skip most arguments subset approach tends to fit better.  
+If you want to pass most arguments discard approach tends to fit better.  
 
 ### [Currying](https://en.wikipedia.org/wiki/Currying)
 
