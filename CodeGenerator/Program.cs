@@ -1,4 +1,5 @@
 ﻿using static CodeGenerator.PartialGenerator;
+using static CodeGenerator.PartialDiscardGenerator;
 using static CodeGenerator.PartialIncrementalGenerator;
 using static CodeGenerator.Common;
 using static CodeGenerator.UnCurryGenerator;
@@ -18,6 +19,9 @@ namespace CodeGenerator
 
             CreatePartialSubsetActionFiles("PartialSubsetAction" + sufix);
             CreatePartialSubsetFuncFiles("PartialSubsetFunc" + sufix);
+
+            CreatePartialSubsetDiscardActionFiles("PartialDiscardAction" + sufix);
+            CreatePartialSubsetDiscardFuncFiles("PartialDiscardFunc" + sufix);
 
             CreatePartialIncrementalFuncFiles("PartialIncrementalFunc" + sufix);
             CreatePartialIncrementalActionFiles("PartialIncrementalAction" + sufix);
@@ -95,6 +99,32 @@ namespace CodeGenerator
             for (int i = 2; i < 9; i++)
             {
                 var methodsText = GetPartialDefinitionsFor(i);
+                var classText = GetClass(className, methodsText, identationLevel: 2);
+
+                CreateFileInsideProject(classText, $@"{className}\FuncOf{i}.cs");
+            }
+        }
+
+        public static void CreatePartialSubsetDiscardActionFiles(string className)
+        {
+            for (int i = 2; i < 9; i++)
+            {
+                var methodsText = GetPartialDiscardDefinitionsFor(i)
+                    .Replace("Func", "Action")
+                    .Replace(", TResult", string.Empty)
+                    .Replace("Action<TResult>", "void");
+
+                var classText = GetClass(className, methodsText, identationLevel: 2);
+
+                CreateFileInsideProject(classText, $@"{className}\ActionOf{i}.cs");
+            }
+        }
+
+        public static void CreatePartialSubsetDiscardFuncFiles(string className)
+        {
+            for (int i = 2; i < 9; i++)
+            {
+                var methodsText = GetPartialDiscardDefinitionsFor(i);
                 var classText = GetClass(className, methodsText, identationLevel: 2);
 
                 CreateFileInsideProject(classText, $@"{className}\FuncOf{i}.cs");
