@@ -115,14 +115,18 @@ var x = add10(5);                       // parameter a receives 5
 Console.WriteLine(x);                   // x = 15
 ```
 
-Which approach to use depends of situation. For example, if you have a function with 4 parameters and want to pass only the third 
-might be more interesting to specify the desired argument `f(arg3: "foo")` rather than `f(_, _, "foo", _)`. 
+Note: when using [C# discard feature](https://docs.microsoft.com/dotnet/csharp/discards) in the same scope that discard approach, 
+you must use double underline (`__`) instead of single underline (`_`) in the method call. That is, instead of `sum(_, 3)` use `sum(__, 3)`.
 
-* If you want to pass arguments incrementaly, incremental approach is better.  
+Each approach fits better depending of situation. For example, if you have a function with 4 parameters and want to pass only the third, 
+might be more interesting to specify the desired argument `f(arg3: "foo")` rather than use discard `f(_, _, "foo", _)`.  
+In general:
+
+* If you want to pass arguments incrementally, incremental approach is better.  
 * If you want to pass arguments arbitrarily and skip most arguments, subset approach tends to fit better.  
 * If you want to pass arguments arbitrarily and pass most arguments, discard approach tends to fit better.  
 
-If you want, it is possible to enable more than one approach at the sime time, for example:
+If you want, it is possible to enable more than one approach at the same time, for example:
 
 ```c#
 using static Curryfy.PartialIncrementalFuncExtensions;
