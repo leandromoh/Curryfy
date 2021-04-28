@@ -17,6 +17,8 @@ Curryfy offers strongly typed extensions that lets you take some benefits of fun
 
 ## Features
 
+* Extension methods for Currying and UnCurrying
+* Extension methods for Partial Application, with 3 possible approaches
 * Robust and strongly typed
 * Self contained with no dependencies
 * Easily installed through NuGet
@@ -32,7 +34,7 @@ Curryfy is also available via NuGet:
 PM> Install-Package Curryfy  
 ```
 
-Or visit: [https://www.nuget.org/packages/Curryfy/](https://www.nuget.org/packages/Curryfy/)
+Or visit: [https://www.nuget.org/packages/Curryfy/](https://www.nuget.org/packages/Curryfy)
 
 ## Using the library
 
@@ -56,7 +58,7 @@ The `-2` overloads not avaible are the one with no parameters and the one with a
 
 - `PartialDiscardActionExtensions` and `PartialDiscardFuncExtensions` classes  
 Provides methods for partial application on delegates, without respecting parameters order.  
-It is similar to `Partial Subset` classes, however in the method call these one rely on arguments  
+It is similar to `PartialSubset` classes, however in the method call these one rely on arguments  
 position rather than their names. Which can be more convenient in some situations.  
 
 ## Core concepts
@@ -86,6 +88,7 @@ var x = add12(3) + add5(7, 3);      // 15 + 15
 ```
 
 Note that using the incremental approach, we can only pass the third argument after pass the first and second.  
+This approach is used by languages like Haskell and F#.  
 However using the subset approach, we can pass arguments arbitrarily.  
 You can pass the only first and the third arguments of a function with 5 parameters, for example.  
 
@@ -99,11 +102,12 @@ Console.WriteLine(x);                   // x = 15
 ```
 
 Using the discard approach, we can rely on arguments position instead of names.  
-The previous example with discard approach:  
+This approach is used by languages like Scala.  
+The previous example using discard approach:  
 
 ```csharp
 using static Curryfy.PartialDiscardFuncExtensions;
-using static Curryfy.__;
+using static Curryfy.Discard;
 
 var add3 = add.ApplyPartial(_, _, 3);   // parameter c receives 3
 var add10 = add3.ApplyPartial(_, 7);    // parameter b receives 7
@@ -111,10 +115,26 @@ var x = add10(5);                       // parameter a receives 5
 Console.WriteLine(x);                   // x = 15
 ```
 
-Which approach to use depends of situation. For example, if you have a function with 4 parameters and want to pass only the third  
-might be more interesting to specify the desired argument `f(arg3: "foo")` rather than `f(_, _, "foo", _)`.  
-If you want to skip most arguments subset approach tends to fit better.  
-If you want to pass most arguments discard approach tends to fit better.  
+Which approach to use depends of situation. For example, if you have a function with 4 parameters and want to pass only the third 
+might be more interesting to specify the desired argument `f(arg3: "foo")` rather than `f(_, _, "foo", _)`. 
+
+* If you want to pass arguments incrementaly, incremental approach is better.  
+* If you want to pass arguments arbitrarily and skip most arguments, subset approach tends to fit better.  
+* If you want to pass arguments arbitrarily and pass most arguments, discard approach tends to fit better.  
+
+If you want, it is possible to enable more than one approach at the sime time, for example:
+
+```c#
+using static Curryfy.PartialIncrementalFuncExtensions;
+using static Curryfy.PartialDiscardFuncExtensions;
+using static Curryfy.Discard;
+
+Func<string, char, int, bool> f = (s, c, i) => s[i] == c;
+
+var g = f.ApplyPartial(_, 'b', 1); // using discard approach, g is Func<string, bool>
+
+var h = f.ApplyPartial("ab", 'b'); // using incremental approach, h is Func<int, bool>
+``` 
 
 ### [Currying](https://en.wikipedia.org/wiki/Currying)
 
