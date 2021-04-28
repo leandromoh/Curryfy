@@ -34,7 +34,7 @@ Curryfy is also available via NuGet:
 PM> Install-Package Curryfy  
 ```
 
-Or visit: [https://www.nuget.org/packages/Curryfy/](https://www.nuget.org/packages/Curryfy)
+Or visit: [https://www.nuget.org/packages/Curryfy](https://www.nuget.org/packages/Curryfy)
 
 ## Using the library
 
@@ -101,7 +101,7 @@ var x = add10(5);                       // parameter a receives 5
 Console.WriteLine(x);                   // x = 15
 ```
 
-Using the discard approach, we can rely on arguments position instead of names.  
+Using the discard approach, we can rely on arguments position instead of name.  
 This approach is used by languages like Scala.  
 The previous example using discard approach:  
 
@@ -116,10 +116,11 @@ Console.WriteLine(x);                   // x = 15
 ```
 
 Note: when using [C# discard feature](https://docs.microsoft.com/dotnet/csharp/discards) in the same scope that discard approach, 
-you must use double underline (`__`) instead of single underline (`_`) in the method call. That is, instead of `sum(_, 3)` use `sum(__, 3)`.
+you should use double underscore (`__`) instead of single underscore (`_`) in the method call. That is, instead of `sum(_, 3)` is `sum(__, 3)`.  
+If not using in same scope single underscore is fine.
 
-Each approach fits better depending of situation. For example, if you have a function with 4 parameters and want to pass only the third, 
-might be more interesting to specify the desired argument `f(arg3: "foo")` rather than use discard `f(_, _, "foo", _)`.  
+Which one of these 3 approaches fits better depending of situation. For example, if you have a function with 4 parameters and want to pass only the third, 
+might be more interesting to specify the desired argument `f(arg3: "foo")` rather than use discard `f(_, _, "foo", _)`. 
 In general:
 
 * If you want to pass arguments incrementally, incremental approach is better.  
