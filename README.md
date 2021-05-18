@@ -39,7 +39,7 @@ Or visit: [https://www.nuget.org/packages/Curryfy](https://www.nuget.org/package
 ## Using the library
 
 All helper methods are available as extension methods under the `Curryfy` namespace.  
-They are divided into 5 static classes to avoid method signature ambiguities:
+They are divided into 7 static classes to avoid method signature ambiguities:
 
 - `CurryExtensions` class  
 Provides methods for curry and uncurry on `Func` delegates.
