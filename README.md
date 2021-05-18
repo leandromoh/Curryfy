@@ -123,7 +123,7 @@ Which one of these 3 approaches fits better depending of situation. For example,
 might be more interesting to specify the desired argument `f(arg3: "foo")` rather than use discard `f(_, _, "foo", _)`. 
 In general:
 
-* If you want to pass arguments incrementally, incremental approach is better.  
+* If you want to pass arguments respecting order, incremental approach is better.  
 * If you want to pass arguments arbitrarily and skip most arguments, subset approach tends to fit better.  
 * If you want to pass arguments arbitrarily and pass most arguments, discard approach tends to fit better.  
 
