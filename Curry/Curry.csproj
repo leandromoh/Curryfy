@@ -24,7 +24,10 @@
     <PackageId>Curryfy</PackageId>
     <PackageVersion>3.1.0</PackageVersion>
     <Authors>Leandro F. Vieira (leandromoh)</Authors>
-    <Description>Provides functional-style extensions for C# 's function type.</Description>
+    <Description>
+      Provides strongly typed extensions methods for C# delegates to take advantages of functional programming techniques, like currying and partial application.  
+      Concepts very well known in functional languages like Haskell, F#, Scala, etc.
+    </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>This project enhances usability for functions with the following methods: Curry, UnCurry, ApplyPartial.</PackageReleaseNotes>
     <Copyright>Copyright 2021 (c) Leandro F. Vieira (leandromoh). All rights reserved.</Copyright>
