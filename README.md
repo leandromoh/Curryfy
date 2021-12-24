@@ -5,7 +5,7 @@
 # Curryfy
 
 Provides strongly typed extensions methods for C# delegates to take advantages of functional programming techniques, like currying and partial application.  
-Concepts very well know in functional languages like Haskell, F#, Scala, etc.
+Concepts very well known in functional languages like Haskell, F#, Scala, etc.
 
 ## What and Why?
 
